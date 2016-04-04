@@ -3,6 +3,7 @@ package com.example.john.knowwoodboardapp;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+//blah
 public class MainActivity extends AppCompatActivity {
 
     @Override
