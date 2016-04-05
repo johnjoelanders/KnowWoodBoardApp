@@ -9,4 +9,59 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.john.knowwoodboardapp.GameActivity">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/txtHighscore"
+        android:maxWidth="200dp"
+        android:layout_alignLeft="@+id/txtWord"
+        android:layout_alignStart="@+id/txtWord" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/txtWord"
+        android:layout_below="@+id/txtHighscore"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="63dp"
+        android:maxWidth="200dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Used Letters"
+        android:id="@+id/textView2"
+        android:layout_below="@+id/txtWord"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="61dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/txtIncorrectLetters"
+        android:layout_below="@+id/textView2"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/txtEnterLetter"
+        android:layout_below="@+id/textView3"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView3"
+        android:text="Enter Letter here"
+        android:layout_below="@+id/txtIncorrectLetters"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="63dp" />
+
 </RelativeLayout>
