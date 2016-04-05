@@ -9,11 +9,15 @@ import java.util.Random;
 public class GameActivity extends AppCompatActivity {
 
     private String[] sampleArray = {"hello", "johnjoe", "and adele", "its me"};
+    private int lives = 10;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
+
+        TextView txtLives =(TextView)findViewById(R.id.txtLives);
+        txtLives.setText(""+lives);
 
         int index = getRandomNumberForArrayIndex(sampleArray.length);
         String wordToGuess = getWordToGuess(index);
