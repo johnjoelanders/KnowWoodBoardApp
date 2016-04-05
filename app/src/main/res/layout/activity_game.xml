@@ -16,7 +16,8 @@
         android:id="@+id/txtHighscore"
         android:maxWidth="200dp"
         android:layout_alignLeft="@+id/txtWord"
-        android:layout_alignStart="@+id/txtWord" />
+        android:layout_alignStart="@+id/txtWord"
+        android:text="txtHighscore" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -26,7 +27,8 @@
         android:layout_below="@+id/txtHighscore"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="63dp"
-        android:maxWidth="200dp" />
+        android:maxWidth="200dp"
+        android:text="txtWord" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -44,7 +46,8 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:id="@+id/txtIncorrectLetters"
         android:layout_below="@+id/textView2"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:text="txtIncorrectLetters" />
 
     <EditText
         android:layout_width="wrap_content"
