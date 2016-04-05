@@ -2,6 +2,7 @@ package com.example.john.knowwoodboardapp;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.TextView;
 
 import java.util.Random;
 
@@ -16,6 +17,9 @@ public class GameActivity extends AppCompatActivity {
 
         int index = getRandomNumberForArrayIndex(sampleArray.length);
         String wordToGuess = getWordToGuess(index);
+        String initialCharacters = hideWord(wordToGuess);
+        TextView txtWord = (TextView)findViewById(R.id.txtWord);
+        txtWord.setText(initialCharacters);
     }
 
     private int getRandomNumberForArrayIndex(int range) {
@@ -27,4 +31,15 @@ public class GameActivity extends AppCompatActivity {
         return sampleArray[index];
     }
 
+    private String hideWord(String wordToGuess) {
+        String wordToGuessHidden = "";
+        for(int i = 0; i < wordToGuess.length(); i++) {
+            if(wordToGuess.substring(i,(i+1)).equals(" ")) {
+                wordToGuessHidden += "   ";
+            } else {
+                wordToGuessHidden += "- ";
+            }
+        }
+        return wordToGuessHidden;
+    }
 }
