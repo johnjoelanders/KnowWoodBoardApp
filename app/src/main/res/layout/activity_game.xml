@@ -15,20 +15,20 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:id="@+id/txtLives"
         android:maxWidth="200dp"
-        android:layout_alignLeft="@+id/txtWord"
-        android:layout_alignStart="@+id/txtWord"
-        android:text="txtLives" />
+        android:text="txtLives"
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@+id/txtIncorrectLetters"
+        android:layout_toStartOf="@+id/txtIncorrectLetters" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:id="@+id/txtWord"
-        android:layout_below="@+id/txtLives"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="63dp"
         android:maxWidth="200dp"
-        android:text="txtWord" />
+        android:text="txtWord"
+        android:layout_below="@+id/txtLives"
+        android:layout_centerHorizontal="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -36,18 +36,18 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Used Letters"
         android:id="@+id/textView2"
+        android:layout_marginTop="38dp"
         android:layout_below="@+id/txtWord"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="61dp" />
+        android:layout_centerHorizontal="true" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:id="@+id/txtIncorrectLetters"
+        android:text="txtIncorrectLetters"
         android:layout_below="@+id/textView2"
-        android:layout_centerHorizontal="true"
-        android:text="txtIncorrectLetters" />
+        android:layout_centerHorizontal="true" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -56,7 +56,8 @@
         android:ems="10"
         android:id="@+id/txtEnterLetter"
         android:layout_below="@+id/textView3"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignLeft="@+id/txtLives"
+        android:layout_alignStart="@+id/txtLives" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -64,7 +65,15 @@
         android:id="@+id/textView3"
         android:text="Enter Letter here"
         android:layout_below="@+id/txtIncorrectLetters"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="63dp" />
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Submit"
+        android:id="@+id/btnSubmit"
+        android:layout_below="@+id/textView3"
+        android:layout_toRightOf="@+id/textView2"
+        android:layout_toEndOf="@+id/textView2" />
 
 </RelativeLayout>
