@@ -16,6 +16,7 @@ public class GameActivity extends AppCompatActivity {
     private Button btnSubmit;
     private EditText txtGuess;
     private String wordToGuess;
+    private String initialCharacters;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,9 +28,10 @@ public class GameActivity extends AppCompatActivity {
 
         int index = getRandomNumberForArrayIndex(sampleArray.length);
         wordToGuess = getWordToGuess(index);
-        String initialCharacters = hideWord(wordToGuess);
+        initialCharacters = hideWord(wordToGuess);
         TextView txtWord = (TextView)findViewById(R.id.txtWord);
         txtWord.setText(initialCharacters);
+
 
         btnSubmit=(Button)findViewById(R.id.btnPlay);
         btnSubmit.setOnClickListener(new View.OnClickListener() {
@@ -61,6 +63,37 @@ public class GameActivity extends AppCompatActivity {
 
     private void btnSubmitOnClick() {
         txtGuess = (EditText) findViewById(R.id.txtEnterLetter);
-        String Guess = txtGuess.getText().toString();
+        String guess = txtGuess.getText().toString();
+        char [] hiddenWord = convertStringToCharArray(initialCharacters);
+
+        for(int i = 0; i < guess.length(); i++) {
+            String charToCheck = guess.substring(i, (i + 1));
+            for(int j = 0; j < wordToGuess.length(); i++) {
+                if(charToCheck.equals(wordToGuess.substring(j, (j + 1)))) {
+                    hiddenWord[j] = charToCheck.charAt(i);
+                }
+            }
+        }
+
+        initialCharacters = convertCharArrayToString(hiddenWord);
+        txtGuess.setText(initialCharacters);
+    }
+
+    private char[] convertStringToCharArray(String stringOfCharactors) {
+        char [] charArray = new char[stringOfCharactors.length()];
+        for(int i = 0; i < stringOfCharactors.length(); i++) {
+            charArray[i] = stringOfCharactors.charAt(i);
+        }
+
+        return charArray;
+    }
+
+    private String convertCharArrayToString(char [] charArray) {
+        String newString = "";
+        for(int i = 0; i < charArray.length; i++) {
+            newString += charArray[i];
+        }
+
+        return newString;
     }
 }
