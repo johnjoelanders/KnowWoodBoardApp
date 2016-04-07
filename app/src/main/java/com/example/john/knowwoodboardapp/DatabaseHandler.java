@@ -22,12 +22,8 @@ public class DatabaseHandler extends SQLiteOpenHelper{
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
-        db.execSQL("create table " + TABLE_NAME + " (ID INTEGER PRIMARY KEY AUTOINCREMENT,NAME TEXT,SCORE INTEGER)");
-
-
-
+        db.execSQL("Delete * FROM "+TABLE_NAME);
+        db.execSQL("CREATE TABLE " + TABLE_NAME + " (ID INTEGER PRIMARY KEY AUTOINCREMENT,NAME TEXT,SCORE INTEGER)");
     }
 
     @Override
@@ -40,7 +36,7 @@ public class DatabaseHandler extends SQLiteOpenHelper{
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL_2,name);
-        contentValues.put(COL_3,score);
+        contentValues.put(COL_3, score);
         long result = db.insert(TABLE_NAME,null,contentValues);
 
         if(result == -1) {
@@ -54,5 +50,11 @@ public class DatabaseHandler extends SQLiteOpenHelper{
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor res = db.rawQuery("Select * from " + TABLE_NAME, null);
         return res;
+    }
+
+    public Integer deleteData (String id) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        return db.delete(TABLE_NAME,"ID = ?",new String[] {id});
+
     }
 }

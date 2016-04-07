@@ -14,6 +14,7 @@ public class HighscoreActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_highscore);
+
         db = new DatabaseHandler(this);
 
         Cursor res = db.getAllData();
@@ -25,7 +26,7 @@ public class HighscoreActivity extends AppCompatActivity {
 
         StringBuffer buffer = new StringBuffer();
         while(res.moveToNext()){
-            buffer.append("Name :"+ res.getString(1));
+            buffer.append("Name :"+ res.getString(1)+"  ");
             buffer.append("Score :"+ res.getString(2)+"\n\n");
 
         }
