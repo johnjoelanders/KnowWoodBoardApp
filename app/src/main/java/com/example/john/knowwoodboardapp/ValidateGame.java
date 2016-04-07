@@ -18,7 +18,13 @@ public class ValidateGame {
     }
 
     public boolean isLetterUsed(String letterInputted) {
-        return this.usedLetters.contains(letterInputted);
+        if(this.usedLetters.contains(letterInputted)) {
+            return true;
+        }
+        else {
+            this.usedLetters.add(letterInputted);
+            return false;
+        }
     }
 
     public boolean isLetterValid(String letterInputted) {
