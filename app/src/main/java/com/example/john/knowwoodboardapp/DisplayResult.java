@@ -39,4 +39,36 @@ public class DisplayResult {
             }
         }
     }
+
+    public List<String> getWordToGuess() {
+        return wordToGuess;
+    }
+
+    public void setWordToGuess(List<String> wordToGuess) {
+        this.wordToGuess = wordToGuess;
+    }
+
+    public List<String> getWordToGuessHidden() {
+        return wordToGuessHidden;
+    }
+
+    public void setWordToGuessHidden(List<String> wordToGuessHidden) {
+        this.wordToGuessHidden = wordToGuessHidden;
+    }
+
+    public List<String> getIncorrectUsedLetters() {
+        return incorrectUsedLetters;
+    }
+
+    public void setIncorrectUsedLetters(List<String> incorrectUsedLetters) {
+        this.incorrectUsedLetters = incorrectUsedLetters;
+    }
+
+    public int getAttemptsLeft() {
+        return attemptsLeft;
+    }
+
+    public void setAttemptsLeft(int attemptsLeft) {
+        this.attemptsLeft = attemptsLeft;
+    }
 }
