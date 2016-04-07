@@ -17,6 +17,7 @@ public class GameActivity extends AppCompatActivity {
     private EditText txtGuess;
     private String wordToGuess;
     private String initialCharacters;
+    private TextView txtWord;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,11 +30,11 @@ public class GameActivity extends AppCompatActivity {
         int index = getRandomNumberForArrayIndex(sampleArray.length);
         wordToGuess = getWordToGuess(index);
         initialCharacters = hideWord(wordToGuess);
-        TextView txtWord = (TextView)findViewById(R.id.txtWord);
+        txtWord = (TextView)findViewById(R.id.txtWord);
         txtWord.setText(initialCharacters);
 
 
-        btnSubmit=(Button)findViewById(R.id.btnPlay);
+        btnSubmit=(Button)findViewById(R.id.btnSubmit);
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) { btnSubmitOnClick(); }
@@ -68,7 +69,7 @@ public class GameActivity extends AppCompatActivity {
 
         for(int i = 0; i < guess.length(); i++) {
             String charToCheck = guess.substring(i, (i + 1));
-            for(int j = 0; j < wordToGuess.length(); i++) {
+            for(int j = 0; j < wordToGuess.length(); j++) {
                 if(charToCheck.equals(wordToGuess.substring(j, (j + 1)))) {
                     hiddenWord[j] = charToCheck.charAt(i);
                 }
@@ -76,7 +77,7 @@ public class GameActivity extends AppCompatActivity {
         }
 
         initialCharacters = convertCharArrayToString(hiddenWord);
-        txtGuess.setText(initialCharacters);
+        txtWord.setText(initialCharacters);
     }
 
     private char[] convertStringToCharArray(String stringOfCharactors) {
