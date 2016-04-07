@@ -22,7 +22,14 @@ public class DatabaseHandler extends SQLiteOpenHelper{
 
     @Override
     public void onCreate(SQLiteDatabase db) {
+
+        db.execSQL("DROP TABLE IF EXISTS "+TABLE_NAME);
         db.execSQL("create table " + TABLE_NAME + " (ID INTEGER PRIMARY KEY AUTOINCREMENT,NAME TEXT,SCORE INTEGER)");
+
+        ContentValues values = new ContentValues();
+        values.put("Luke", COL_2);
+        values.put("8", COL_3);
+        db.insert(TABLE_NAME, null, values);
 
     }
 
@@ -31,6 +38,7 @@ public class DatabaseHandler extends SQLiteOpenHelper{
         db.execSQL("DROP TABLE IF EXISTS "+TABLE_NAME);
         onCreate(db);
     }
+
     public boolean insertData(String name, Integer score) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -47,7 +55,7 @@ public class DatabaseHandler extends SQLiteOpenHelper{
 
     public Cursor getAllData() {
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor res = db.rawQuery("Select COL_2, COL_3 from " + TABLE_NAME, null);
+        Cursor res = db.rawQuery("Select * from " + TABLE_NAME, null);
         return res;
     }
 }
