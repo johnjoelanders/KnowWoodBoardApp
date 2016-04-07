@@ -9,7 +9,7 @@ import android.widget.Button;
 //blah
 public class MainActivity extends AppCompatActivity {
 
-    Button button;
+    Button btnPlay,btnHighScore;
     DatabaseHandler myDb;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,8 +17,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         myDb = new DatabaseHandler(this);
 
-        button=(Button)findViewById(R.id.btnPlay);
-        button.setOnClickListener(new View.OnClickListener() {
+        btnPlay=(Button)findViewById(R.id.btnPlay);
+        btnPlay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -26,5 +26,19 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(gameActivity);
             }
         });
+
+        btnHighScore=(Button)findViewById(R.id.btnHighScore);
+        btnHighScore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent gameActivity = new Intent(getApplicationContext(),HighscoreActivity.class);
+                startActivity(gameActivity);
+
+            }
+        });
+
+
+
     }
 }
