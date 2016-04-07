@@ -37,7 +37,10 @@ public class GameActivity extends AppCompatActivity {
         btnSubmit=(Button)findViewById(R.id.btnSubmit);
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) { btnSubmitOnClick(); }
+            public void onClick(View v) {
+                btnSubmitOnClick();
+                txtGuess.setText("");
+            }
         });
     }
 
