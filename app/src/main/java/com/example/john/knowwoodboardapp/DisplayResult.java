@@ -31,4 +31,12 @@ public class DisplayResult {
         }
         return hiddenWord;
     }
+
+    public void updateHiddenWord(String letterToShow) {
+        for(int i = 0; i < wordToGuess.size(); i++) {
+            if (wordToGuess.get(i).equals(letterToShow)) {
+                wordToGuessHidden.set(i, letterToShow);
+            }
+        }
+    }
 }
