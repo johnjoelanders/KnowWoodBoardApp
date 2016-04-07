@@ -2,6 +2,7 @@ package com.example.john.knowwoodboardapp;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -34,7 +35,7 @@ public class DatabaseHandler extends SQLiteOpenHelper{
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL_2,name);
-        contentValues.put(COL_3,score);
+        contentValues.put(COL_3, score);
         long result = db.insert(TABLE_NAME,null,contentValues);
 
         if(result == -1) {
@@ -42,5 +43,11 @@ public class DatabaseHandler extends SQLiteOpenHelper{
         }else {
             return true;
         }
+    }
+
+    public Cursor getAllData() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor res = db.rawQuery("Select COL_2, COL_3 from " + TABLE_NAME, null);
+        return res;
     }
 }
