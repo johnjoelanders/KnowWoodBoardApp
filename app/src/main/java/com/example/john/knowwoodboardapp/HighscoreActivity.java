@@ -1,9 +1,8 @@
 package com.example.john.knowwoodboardapp;
 
-import android.app.AlertDialog;
 import android.database.Cursor;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
 public class HighscoreActivity extends AppCompatActivity {
@@ -18,6 +17,7 @@ public class HighscoreActivity extends AppCompatActivity {
         db = new DatabaseHandler(this);
 
         Cursor res = db.getAllData();
+        db.insertData("Luke ", 100);
 
         if(res.getCount() == 0){
             displayHighscores("Nothing Found");
