@@ -47,6 +47,7 @@ public class DatabaseHandler extends SQLiteOpenHelper{
     }
 
     public Cursor getAllData() {
+
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor res = db.rawQuery("Select * from " + TABLE_NAME + " ORDER BY Score desc limit 10", null);
         return res;
