@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Random;
 
@@ -24,21 +25,47 @@ public class GameActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
 
-        TextView txtLives =(TextView)findViewById(R.id.txtLives);
+        final TextView txtLives =(TextView)findViewById(R.id.txtLives);
         txtLives.setText(""+lives);
 
         int index = getRandomNumberForArrayIndex(sampleArray.length);
         wordToGuess = getWordToGuess(index);
         initialCharacters = hideWord(wordToGuess);
-        txtWord = (TextView)findViewById(R.id.txtWord);
-        txtWord.setText(initialCharacters);
 
+        final ValidateGame validate = new ValidateGame(wordToGuess);
+        final DisplayResult display = new DisplayResult(validate.getValidLetters());
+
+
+        txtWord = (TextView)findViewById(R.id.txtWord);
+
+        String formatedWordToGuess = display.getWordToGuessHidden().toString()
+                .replace(",", " ")
+                .replace("[", "")
+                .replace("]", "")
+                .trim();
+
+        txtWord.setText(formatedWordToGuess);
+
+        Toast toast = Toast.makeText(getApplicationContext(), validate.getValidLetters().toString(), Toast.LENGTH_LONG);
+        toast.show();
+
+        txtGuess = (EditText) findViewById(R.id.txtEnterLetter);
 
         btnSubmit=(Button)findViewById(R.id.btnSubmit);
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                btnSubmitOnClick();
+                //btnSubmitOnClick();
+                EditText txtFieldLetter = (EditText) findViewById(R.id.txtEnterLetter);
+                if(!validate.isLetterUsed(txtFieldLetter.toString())) {
+                    if(validate.isLetterValid(txtFieldLetter.toString())) {
+                        display.updateHiddenWord(txtFieldLetter.toString());
+                        txtWord.setText(display.getWordToGuessHidden().toString());
+                    } else {
+                        display.setAttemptsLeft();
+                        txtLives.setText("" + display.getAttemptsLeft());
+                    }
+                }
                 txtGuess.setText("");
             }
         });

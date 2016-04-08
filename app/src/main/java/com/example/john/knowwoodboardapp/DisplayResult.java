@@ -13,14 +13,14 @@ public class DisplayResult {
     private List<String> incorrectUsedLetters;
     private int attemptsLeft;
 
-    public DisplayResult(ArrayList<String> wordToGuess) {
+    public DisplayResult(List<String> wordToGuess) {
         this.wordToGuess = wordToGuess;
         incorrectUsedLetters = new ArrayList<String>();
         attemptsLeft = 10;
         wordToGuessHidden = hideWordWithDashes(wordToGuess);
     }
 
-    public ArrayList<String> hideWordWithDashes(ArrayList<String> wordToGuess) {
+    public ArrayList<String> hideWordWithDashes(List<String> wordToGuess) {
         ArrayList<String> hiddenWord = new ArrayList<String>();
         for(String i : wordToGuess) {
             if(i.equals(" ")) {
@@ -68,7 +68,7 @@ public class DisplayResult {
         return attemptsLeft;
     }
 
-    public void setAttemptsLeft(int attemptsLeft) {
-        this.attemptsLeft = attemptsLeft;
+    public void setAttemptsLeft() {
+        this.attemptsLeft -= 1;
     }
 }
