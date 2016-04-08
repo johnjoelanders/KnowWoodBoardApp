@@ -17,7 +17,6 @@ public class HighscoreActivity extends AppCompatActivity {
         db = new DatabaseHandler(this);
 
         Cursor res = db.getAllData();
-        db.insertData("Luke ", 100);
 
         if(res.getCount() == 0){
             displayHighscores("Nothing Found");
