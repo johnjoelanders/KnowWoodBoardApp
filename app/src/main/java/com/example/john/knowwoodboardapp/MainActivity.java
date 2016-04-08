@@ -9,7 +9,7 @@ import android.widget.Button;
 //blah
 public class MainActivity extends AppCompatActivity {
 
-    Button btnPlay,btnHighScore;
+    Button btnPlay,btnHighScore,btnHangman;
     DatabaseHandler myDb;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +33,17 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 Intent gameActivity = new Intent(getApplicationContext(),HighscoreActivity.class);
+                startActivity(gameActivity);
+
+            }
+        });
+
+        btnHangman=(Button)findViewById(R.id.btnHangman);
+        btnHangman.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent gameActivity = new Intent(getApplicationContext(),DisplayingHangman.class);
                 startActivity(gameActivity);
 
             }

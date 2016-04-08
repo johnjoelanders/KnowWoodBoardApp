@@ -39,4 +39,12 @@
         android:layout_below="@+id/btnPlay"
         android:layout_alignLeft="@+id/btnPlay"
         android:layout_alignStart="@+id/btnPlay" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hangmantest"
+        android:id="@+id/btnHangman"
+        android:layout_below="@+id/btnHighScore"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>
