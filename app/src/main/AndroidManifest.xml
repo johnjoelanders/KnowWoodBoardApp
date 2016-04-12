@@ -23,7 +23,7 @@
         <activity
             android:name=".HighscoreActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".DisplayingHangman"></activity>
+        <activity android:name=".displayingHangman"></activity>
     </application>
 
 </manifest>

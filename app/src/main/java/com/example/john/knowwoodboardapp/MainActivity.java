@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent gameActivity = new Intent(getApplicationContext(),DisplayingHangman.class);
+                Intent gameActivity = new Intent(getApplicationContext(),displayingHangman.class);
                 startActivity(gameActivity);
 
             }
