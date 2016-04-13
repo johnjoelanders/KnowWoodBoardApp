@@ -35,8 +35,8 @@ public class ValidateGame {
         return usedLetters;
     }
 
-    public void setUsedLetters(List<String> usedLetters) {
-        this.usedLetters = usedLetters;
+    public void setUsedLetters(String usedLetter) {
+        this.usedLetters.add(usedLetter);
     }
 
     public List<String> getValidLetters() {
