@@ -14,7 +14,7 @@ import java.util.List;
 public class GameActivity extends AppCompatActivity {
 
     private Button btnSubmit;
-    TextView hiddenWord;
+    TextView hiddenWord, incorrectLetters;
     EditText submittedLetter;
     GameHandler gameHandler;
 
@@ -24,6 +24,7 @@ public class GameActivity extends AppCompatActivity {
         setContentView(R.layout.activity_game);
 
         hiddenWord =  (TextView) findViewById(R.id.txtWord);
+        incorrectLetters = (TextView) findViewById(R.id.txtIncorrectLetters);
         submittedLetter = (EditText) findViewById(R.id.txtEnterLetter);
 
         this.hiddenWord.setText("");
@@ -40,9 +41,10 @@ public class GameActivity extends AppCompatActivity {
         this.btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                btnSubmitOnClick(submittedLetter.toString());
+                btnSubmitOnClick(submittedLetter.getText().toString());
                 submittedLetter.setText("");
                 hiddenWord.setText(formatArraylistToString(gameHandler.getUpdatedHiddenWord()));
+                incorrectLetters.setText(formatArraylistToString(gameHandler.getWrongLetters()));
             }
         });
     }
