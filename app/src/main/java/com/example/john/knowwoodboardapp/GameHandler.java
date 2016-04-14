@@ -39,11 +39,16 @@ public class GameHandler {
         this.wrongLetters.add(letter);
     }
 
-    public void addCorrectLetterToHiddenWord() {
-
+    public void addCorrectLetterToHiddenWord(String letter) {
+        for(int  i = 0; i < this.wordToGuess.size(); i++) {
+            if(this.wordToGuess.get(i).equals(letter)) {
+                this.wordToGuessHidden.remove(i);
+                this.wordToGuessHidden.add(i, letter);
+            }
+        }
     }
 
     public List<String> getWrongLetters() {
-        return wrongLetters;
+        return this.wrongLetters;
     }
 }
