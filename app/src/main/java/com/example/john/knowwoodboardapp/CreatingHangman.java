@@ -28,47 +28,51 @@ public class CreatingHangman extends View{
     public void onDraw(Canvas canvas){
         super.onDraw(canvas);
         //int lives = Integer.parseInt(text);
-        int lives = 7;
+        int lives = 5;
         int width = lDisplayMetrics.widthPixels;
         int height = lDisplayMetrics.heightPixels;
         paint.setColor(Color.BLACK);
         paint.setStrokeWidth(10);
 
-        if(lives >= 1){
+        if(lives <= 10){
             //Draw Base
             canvas.drawLine(width/4,height/3,width/2,height/3,paint);
         }
-        if(lives >= 2){
+        if(lives <= 9){
             //Draw pillar
             canvas.drawLine(width/4,height/3,width/4,height/14,paint);
         }
-        if(lives >= 3){
+        if(lives <= 8){
             //Draw top Horizontal line
             canvas.drawLine(width/4,height/14,width/2,height/14,paint);
         }
-        if(lives >= 4){
+        if(lives <= 7){
             //Draw rope
             canvas.drawLine(width/2,height/14,width/2,height/10,paint);
         }
-        if(lives >= 5){
+        if(lives <= 6){
             //Draw Head
             canvas.drawCircle(width/2,height/8,width/14,paint);
         }
-        if(lives >= 6){
+        if(lives <= 5){
             //Draw Body
-            canvas.drawLine(width/2,height/8,width/2,height/2,paint);
+            canvas.drawLine(width/2,height/8,width/2,height/4,paint);
         }
-        if(lives >= 7){
+        if(lives <= 4){
             //Draw Left arm
+            canvas.drawLine(width/2,height/6,width/2-30,height/4,paint);
         }
-        if(lives > 8){
+        if(lives <= 3){
             //Draw Right Arm
+            canvas.drawLine(width/2,height/6,width/2+30,height/4,paint);
         }
-        if(lives > 9){
+        if(lives <= 2){
             //Draw Left Leg
+            canvas.drawLine(width/2,height/4,width/2-30,height/3-15,paint);
         }
-        if(lives > 10){
+        if(lives <= 1){
             //Draw Right leg end game
+            canvas.drawLine(width/2,height/4,width/2+30,height/3-15,paint);
         }
     }
 }
