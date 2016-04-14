@@ -14,8 +14,8 @@ import java.util.List;
 public class GameActivity extends AppCompatActivity {
 
     private Button btnSubmit;
-    TextView hiddenWord, incorrectLetters;
-    EditText submittedLetter;
+    private TextView hiddenWord, incorrectLetters, livesLeft;
+    private EditText submittedLetter;
     GameHandler gameHandler;
 
     @Override
@@ -25,17 +25,18 @@ public class GameActivity extends AppCompatActivity {
 
         hiddenWord =  (TextView) findViewById(R.id.txtWord);
         incorrectLetters = (TextView) findViewById(R.id.txtIncorrectLetters);
+        livesLeft = (TextView) findViewById(R.id.txtLives);
         submittedLetter = (EditText) findViewById(R.id.txtEnterLetter);
-
-        this.hiddenWord.setText("");
-
         String wordToGuess = wordToGuess();
+        this.hiddenWord.setText(hideWord(wordToGuess));
 
         gameHandler = new GameHandler(
                 10,
                 formatStringToArraylist(wordToGuess),
                 formatStringToArraylist(hideWord(wordToGuess))
         );
+
+        livesLeft.setText("" + gameHandler.getLivesLeft());
 
         this.btnSubmit=(Button)findViewById(R.id.btnSubmit);
         this.btnSubmit.setOnClickListener(new View.OnClickListener() {
@@ -45,6 +46,7 @@ public class GameActivity extends AppCompatActivity {
                 submittedLetter.setText("");
                 hiddenWord.setText(formatArraylistToString(gameHandler.getUpdatedHiddenWord()));
                 incorrectLetters.setText(formatArraylistToString(gameHandler.getWrongLetters()));
+                livesLeft.setText("" + gameHandler.getLivesLeft());
             }
         });
     }
@@ -81,6 +83,7 @@ public class GameActivity extends AppCompatActivity {
                 gameHandler.addCorrectLetterToHiddenWord(letterSubmitted);
             } else {
                 gameHandler.addWrongLetter(letterSubmitted);
+                gameHandler.lifeLost();
             }
         }
     }

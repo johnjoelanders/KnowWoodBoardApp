@@ -51,7 +51,12 @@ public class GameHandler {
     public List<String> getWrongLetters() {
         return this.wrongLetters;
     }
+
     public List<String> getUpdatedHiddenWord() {
         return this.wordToGuessHidden;
+    }
+
+    public int getLivesLeft() {
+        return this.livesLeft;
     }
 }
