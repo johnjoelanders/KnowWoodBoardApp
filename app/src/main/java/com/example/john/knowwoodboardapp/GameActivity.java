@@ -52,7 +52,7 @@ public class GameActivity extends AppCompatActivity {
     private String hideWord(String wordToGuess) {
         String wordToGuessHidden = "";
         for(int i = 0; i < wordToGuess.length(); i++) {
-            wordToGuessHidden += "- ";
+            wordToGuessHidden += "-";
         }
         return wordToGuessHidden;
     }
